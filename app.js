@@ -1,34 +1,39 @@
 
-const canvas = document.getElementById('bg');
-const ctx = canvas.getContext('2d');
+// Typing Effect
+const texts = ["high-scale backend systems", "distributed architectures", "enterprise analytics platforms"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+(function type() {
+  if (count === texts.length) { count = 0; }
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+  document.getElementById("typing").textContent = letter;
+  if (letter.length === currentText.length) {
+    count++;
+    index = 0;
+    setTimeout(type, 1000);
+  } else {
+    setTimeout(type, 70);
+  }
+})();
 
-let particles = [];
-
-for(let i=0;i<80;i++){
-  particles.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*2,
-    dx:(Math.random()-0.5)*0.5,
-    dy:(Math.random()-0.5)*0.5
+// Scroll Reveal
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
   });
-}
+});
 
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle='rgba(99,102,241,0.7)';
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-    p.x+=p.dx;
-    p.y+=p.dy;
-    if(p.x<0||p.x>canvas.width) p.dx*=-1;
-    if(p.y<0||p.y>canvas.height) p.dy*=-1;
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+// Cursor Effect
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
