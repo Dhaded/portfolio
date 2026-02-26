@@ -1,186 +1,395 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivalingesh Dhaded | Senior Backend Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Shivalingesh Dhaded | Engineering Intelligence</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
---bg:#0b1020;
---panel:#11162a;
---border:#1f2937;
---primary:#3b82f6;
+--bg:#0a1224;
+--panel:#0f1b35;
+--border:#1e2a4a;
+--primary:#2563eb;
 --accent:#22d3ee;
---text:#e6edf3;
---muted:#9aa4b2;
+--text:#e6edf7;
+--muted:#8ea0c0;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.container{max-width:1150px;margin:auto;padding:60px 24px}
-h1,h2,h3{font-weight:600}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+.container{max-width:1150px;margin:auto;padding:100px 24px 70px 24px;}
 
-header{margin-bottom:80px}
-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:60px}
-nav a{color:var(--muted);text-decoration:none;margin-left:24px;font-size:.9rem}
+header{
+position:fixed;top:0;left:0;width:100%;height:70px;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 40px;background:rgba(10,18,36,0.95);
+border-bottom:1px solid var(--border);z-index:1000;
+}
+
+.logo{font-weight:700;font-size:1.5rem;color:var(--primary);letter-spacing:2px;}
+
+nav{display:flex;align-items:center;}
+
+nav a{
+color:var(--muted);
+text-decoration:none;
+margin-left:25px;
+font-size:.9rem;
+}
+
 nav a:hover{color:#fff}
 
-.metrics{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-bottom:60px;
-}
-
-.metric{
+/* Resume Header Box */
+.resume-header-box{
+margin-left:30px;
+padding:6px 16px;
+font-size:.8rem;
+border-radius:8px;
+cursor:pointer;
+position:relative;
 background:var(--panel);
-border:1px solid var(--border);
-padding:28px;
-border-radius:10px;
+color:#fff;
+overflow:hidden;
+transition:.2s ease;
+box-shadow:0 0 20px rgba(37,99,235,0.5), 0 0 40px rgba(34,211,238,0.3);
 }
 
-.metric h2{font-size:2rem;color:var(--primary)}
-.metric p{font-size:.8rem;color:var(--muted);margin-top:6px}
-
-.section{margin-bottom:80px}
-.section h2{margin-bottom:24px;font-size:1.4rem}
-
-.arch-flow{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
+.resume-header-box:hover{
+transform:translateY(-2px);
+box-shadow:0 0 30px rgba(37,99,235,0.7), 0 0 60px rgba(34,211,238,0.5);
 }
 
-.node{
-background:var(--panel);
-border:1px solid var(--border);
-padding:12px 18px;
-border-radius:20px;
-font-size:.85rem;
+/* Moving Border Animation */
+.resume-header-box::before{
+content:"";
+position:absolute;
+inset:0;
+padding:2px;
+border-radius:8px;
+background:linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+background-size:300% 300%;
+animation:borderMove 3s linear infinite;
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+}
+
+@keyframes borderMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.section{margin-bottom:110px;}
+.section h2{margin-bottom:30px;font-size:1.6rem;}
+
+.intro-text{
+margin-bottom:50px;
+text-align:center;
+animation:fadeInDown 0.8s ease-out;
+}
+
+.intro-text h1{
+font-size:2.8rem;
+margin-bottom:15px;
+background:linear-gradient(135deg, #fff, var(--accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+
+.intro-subtitle{
+font-size:1rem;
+color:var(--accent);
+margin-bottom:25px;
+font-weight:500;
+letter-spacing:0.5px;
+}
+
+.intro-description{
+font-size:1rem;
 color:var(--muted);
+max-width:900px;
+margin:0 auto 20px auto;
+line-height:1.8;
+text-align:left;
+}
+
+.intro-mindset{
+font-size:1.05rem;
+color:var(--primary);
+margin-top:30px;
+font-weight:600;
+font-style:italic;
+}
+
+@keyframes fadeInDown{
+0%{opacity:0;transform:translateY(-30px);}
+100%{opacity:1;transform:translateY(0);}
+}
+
+.status-block{
+background:var(--panel);
+border:1px solid var(--border);
+padding:40px;border-radius:14px;margin-bottom:90px;
+box-shadow:0 0 40px rgba(37,99,235,0.15);
+animation:slideInUp 1s ease-out 0.3s both;
+}
+
+@keyframes slideInUp{
+0%{opacity:0;transform:translateY(40px);}
+100%{opacity:1;transform:translateY(0);}
+}
+
+.status-title{
+font-family:'JetBrains Mono',monospace;
+font-size:.8rem;color:var(--accent);
+margin-bottom:25px;letter-spacing:1px;
+}
+
+.metric{margin-bottom:25px;animation:fadeIn 0.6s ease-out both;}
+.metric:nth-child(2){animation-delay:0.5s;}
+.metric:nth-child(3){animation-delay:0.7s;}
+.metric:nth-child(4){animation-delay:0.9s;}
+.metric:nth-child(5){animation-delay:1.1s;}
+.metric h3{color:var(--primary);margin-bottom:8px;font-size:1.1rem;position:relative;padding-left:20px;}
+.metric h3::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 10px var(--accent);animation:pulse 2s ease-in-out infinite;}
+.metric p{color:var(--muted);font-size:.9rem;}
+
+@keyframes fadeIn{
+0%{opacity:0;}
+100%{opacity:1;}
+}
+
+@keyframes pulse{
+0%, 100%{box-shadow:0 0 10px var(--accent);}
+50%{box-shadow:0 0 20px var(--accent), 0 0 30px var(--accent);}
 }
 
 .card{
 background:var(--panel);
 border:1px solid var(--border);
-padding:28px;
-border-radius:10px;
-margin-bottom:20px;
+padding:30px;border-radius:12px;margin-bottom:30px;
 }
 
-.card ul{padding-left:18px;color:var(--muted)}
-.card li{margin-bottom:8px}
+.live-bullets li{
+margin-bottom:12px;color:var(--muted);
+position:relative;padding-left:18px;
+}
+
+.live-bullets li::before{
+content:"▸";position:absolute;left:0;color:var(--accent);
+text-shadow:0 0 10px var(--accent);
+animation:bulletPulse 2s ease-in-out infinite;
+}
+
+@keyframes bulletPulse{
+0%, 100%{opacity:1; text-shadow:0 0 10px var(--accent);}
+50%{opacity:0.6; text-shadow:0 0 20px var(--accent), 0 0 30px var(--accent);}
+}
 
 .stack-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.contact-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
+}
+
+.contact-card{
+background:var(--panel);
+border:1px solid var(--border);
+padding:25px;border-radius:12px;
+cursor:pointer;transition:.3s;
+}
+
+.contact-card:hover{
+transform:translateY(-6px);
+border-color:var(--primary);
 }
 
 footer{
 border-top:1px solid var(--border);
-padding:40px 0;
-color:var(--muted);
-font-size:.8rem;
-text-align:center;
+padding:40px 0;color:var(--muted);
+font-size:.8rem;text-align:center;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-
-<nav>
-<div><strong>Shivalingesh Dhaded</strong></div>
-<div>
-<a href="#architecture">Architecture</a>
-<a href="#experience">Experience</a>
-<a href="#stack">Stack</a>
-<a href="#certifications">Certifications</a>
-<a href="resume.html">Resume</a>
-</div>
-</nav>
 
 <header>
-<h1>Senior Backend Engineer — Distributed Systems & DevOps Intelligence</h1>
-<p style="color:var(--muted);margin-top:12px;">
-Designing event-driven systems powering engineering analytics across enterprise-scale repositories.
-</p>
+<div class="logo">SSD</div>
+<nav>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
+<div class="resume-header-box" onclick="downloadResume()">Resume</div>
+</nav>
 </header>
 
-<section class="metrics">
-<div class="metric"><h2>300+</h2><p>Repositories Monitored</p></div>
-<div class="metric"><h2>120+</h2><p>Engineering Teams Supported</p></div>
-<div class="metric"><h2>100+ GB</h2><p>Production Data Optimized</p></div>
-<div class="metric"><h2>45%</h2><p>MongoDB Latency Reduction</p></div>
-<div class="metric"><h2>20%</h2><p>Infrastructure Cost Savings</p></div>
-<div class="metric"><h2>30%</h2><p>Faster Vulnerability Remediation</p></div>
-</section>
+<div class="container">
 
-<section id="architecture" class="section">
-<h2>System Architecture</h2>
-<div class="arch-flow">
-<div class="node">GitHub Webhooks</div>
-<div class="node">Azure DevOps Hooks</div>
-<div class="node">Go Ingestion Services</div>
-<div class="node">MongoDB Aggregation Engine</div>
-<div class="node">DORA Metrics Processor</div>
-<div class="node">Developer Productivity Dashboard</div>
-<div class="node">CodeQL + JFrog Pipeline</div>
+<section class="section">
+<div class="intro-text">
+<h1>Shivalingesh Dhaded</h1>
+<p class="intro-subtitle">Backend Engineer | Golang | DevOps Intelligence | Engineering Analytics</p>
+<p class="intro-description">I build backend systems that turn GitHub, Azure Boards, and CI/CD data into insights. From implementing DORA metrics to custom developer dashboards, I enable engineering transparency at scale. I work with Golang, MongoDB, Docker, Kubernetes, and microservices - with a focus on clean code, fast delivery, and meaningful metrics.</p>
+<p class="intro-description">Recently, I led engineering analytics pipelines that track commit frequency, PR cycle time, review velocity, and more - helping teams identify bottlenecks and improve delivery speed. My APIs power scorecards for teams, shifting decisions from gut-feel to data-driven.</p>
+<p class="intro-description">I collaborate across teams to define metrics that matter, automate what's repetitive, and simplify what's complex.</p>
+<p class="intro-mindset">Mindset: FEAR = Face Everything And Rise</p>
+</div>
+
+<div class="status-block">
+<div class="status-title">SYSTEM STATUS: OPERATIONAL</div>
+
+<div class="metric">
+<h3>300+ Repositories | 120+ Teams</h3>
+<p>Led the backend charge on developer productivity metrics—turning Git activity, PR patterns, and review habits into dashboards that managers actually read. Designed and developed Golang microservices for Google DORA metrics including Change Lead Time (CLT), MTTR, CFR, and Deployment Frequency.</p>
+</div>
+
+<div class="metric">
+<h3>100+ GB Data Optimization</h3>
+<p>Developed a MongoDB cleanup utility that cleared 100+ GB of bad data—saving thousands in storage costs $$$, and proving that MongoDB won't Marie Kondo itself. Re-architected pipelines reducing latency by 45% and infra cost by 20%.</p>
+</div>
+
+<div class="metric">
+<h3>Real-Time Engineering Signal Ingestion</h3>
+<p>Integrated GitHub webhooks to rescue from aggressive REST polling that consistently triggered 429 rate limits—because sometimes the API is just saying, "please stop." Built Azure DevOps service hooks ensuring uninterrupted ingestion across the platform.</p>
+</div>
+
+<div class="metric">
+<h3>Developer Productivity Metrics Platform</h3>
+<p>Built systems to track commit frequency, PR size, and review velocity—teaching me how to quantify "vibes" into charts that managers love, especially when they become KPIs. Delivered platform-wide initiative tracking how long PRs wait in review limbo and who's ghosting code reviews.</p>
+</div>
+
+<div class="metric">
+<h3>30% Faster Vulnerability Remediation</h3>
+<p>Built CodeQL + JFrog pipeline improving remediation cycle time. Engineered robust backend services and transformed complex datasets into actionable dashboards—all while tackling bugs at record speed (bugs teach you more than documentation ever could).</p>
+</div>
+
 </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience" class="section">
 <h2>Experience</h2>
 
 <div class="card">
-<strong>Senior Associate 2 — Kyndryl (IBM)</strong>
-<ul>
-<li>Leading Golang microservices implementing DORA metrics at scale.</li>
-<li>Architected centralized Developer Productivity Dashboard.</li>
-<li>Mentored engineers on distributed system design and optimization.</li>
+<strong>Senior Associate 2 · PwC · Mar 2025 – Present</strong>
+<ul class="live-bullets" style="margin-top:15px;">
+<li>Leading Golang-based DORA microservices across 300+ repositories and 120+ teams</li>
+<li>Architected centralized Developer Productivity Dashboard with real-time aggregation</li>
+<li>Built MongoDB repair utility handling 100+ GB datasets</li>
+<li>Integrated GitHub webhooks and Azure DevOps service hooks overcoming API rate limits</li>
+<li>Mentored junior developers on microservices architecture and profiling techniques</li>
 </ul>
 </div>
 
 <div class="card">
-<strong>Senior Associate — Kyndryl (IBM)</strong>
-<ul>
-<li>Built event-driven ingestion services integrating GitHub GraphQL & Azure Boards APIs.</li>
-<li>Designed vulnerability management pipelines using CodeQL & JFrog.</li>
-<li>Optimized large-scale MongoDB aggregation pipelines over 100+ GB datasets.</li>
+<strong>Senior Associate · PwC · Jun 2022 – Mar 2025</strong>
+<ul class="live-bullets" style="margin-top:15px;">
+<li>Built backend services ingesting GitHub GraphQL, Azure Boards, JFrog, and CodeQL signals</li>
+<li>Implemented Azure Boards sync microservices for cross-platform data flow</li>
+<li>Designed vulnerability management pipelines reducing remediation time by 30%</li>
+<li>Crafted MongoDB aggregation pipelines computing system health metrics</li>
+<li>Resolved 100+ production defects lowering MTTR</li>
+<li>Received multiple recognitions for delivery impact and technical excellence</li>
 </ul>
 </div>
-
 </section>
 
-<section id="stack" class="section">
-<h2>Technical Stack</h2>
+<!-- SKILLS -->
+<section id="skills" class="section">
+<h2>Technical Skills</h2>
 <div class="stack-grid">
-<div class="card"><strong>Languages</strong><p style="color:var(--muted);margin-top:8px;">Go, Java, Python, C++</p></div>
-<div class="card"><strong>Data Systems</strong><p style="color:var(--muted);margin-top:8px;">MongoDB, MySQL, PostgreSQL, Redis</p></div>
-<div class="card"><strong>Cloud & Infra</strong><p style="color:var(--muted);margin-top:8px;">Azure, AWS (ECS, Lambda, S3), Docker, Kubernetes</p></div>
-<div class="card"><strong>Engineering</strong><p style="color:var(--muted);margin-top:8px;">Distributed Systems, Microservices, System Design</p></div>
+<div class="card"><strong>Key Skills</strong><p style="margin-top:10px;color:var(--muted);">System Design, Microservices, Distributed Systems, REST APIs, OOP, DSA</p></div>
+<div class="card"><strong>Languages</strong><p style="margin-top:10px;color:var(--muted);">Go, Java, Python, C++</p></div>
+<div class="card"><strong>Cloud</strong><p style="margin-top:10px;color:var(--muted);">Azure, AWS (ECS, Lambda, S3)</p></div>
+<div class="card"><strong>Tools</strong><p style="margin-top:10px;color:var(--muted);">Docker, Kubernetes, Jenkins, GitHub, Redis</p></div>
+<div class="card"><strong>Databases</strong><p style="margin-top:10px;color:var(--muted);">MongoDB, MySQL, PostgreSQL</p></div>
+<div class="card"><strong>Frameworks</strong><p style="margin-top:10px;color:var(--muted);">Spring Boot, Hibernate, JDBC</p></div>
 </div>
 </section>
 
+<!-- CERTIFICATIONS -->
 <section id="certifications" class="section">
 <h2>Certifications</h2>
-<div class="card">
-<ul>
-<li>Certified Kubernetes Application Developer (CKAD)</li>
-<li>Elastic Stack (ELK) Certification</li>
-<li>Microsoft Azure AZ-900</li>
-</ul>
+<div class="stack-grid">
+<div class="card" onclick="window.open('https://www.credly.com/badges/14c703d9-35d5-4507-8ef2-2f3f697ee36e/public_url','_blank')" style="cursor:pointer;">
+<strong>Certified Kubernetes Application Developer (CKAD)</strong>
+<p style="margin-top:10px;color:var(--muted);">Linux Foundation · Cloud Native Computing Foundation</p>
+<p style="margin-top:8px;color:var(--accent);font-size:.85rem;">View Credential →</p>
+</div>
+<div class="card" onclick="window.open('https://www.credly.com/badges/03f7988d-6ced-40f4-bbde-054b8324670f/public_url','_blank')" style="cursor:pointer;">
+<strong>Elastic (ELK) Training</strong>
+<p style="margin-top:10px;color:var(--muted);">Elastic · Observability & Search Platform</p>
+<p style="margin-top:8px;color:var(--accent);font-size:.85rem;">View Credential →</p>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2>Initiate Connection</h2>
+<div class="contact-grid">
+
+<div class="contact-card" onclick="navigator.clipboard.writeText('+919483947675')">
+<strong>Phone</strong>
+<p style="margin-top:8px;color:var(--muted);">
++91 9483947675<br>
+<span style="font-size:.75rem;">(Click to copy)</span>
+</p>
+</div>
+
+<div class="contact-card" onclick="window.location.href='mailto:slingesh2000@gmail.com'">
+<strong>Email</strong>
+<p style="margin-top:8px;color:var(--muted);">
+slingesh2000@gmail.com
+</p>
+</div>
+
+<div class="contact-card" onclick="window.open('https://github.com/Dhaded','_blank')">
+<strong>GitHub</strong>
+<p style="margin-top:8px;color:var(--muted);">
+github.com/Dhaded
+</p>
+</div>
+
+<div class="contact-card" onclick="window.open('https://www.linkedin.com/in/shivalingesh-dhaded/','_blank')">
+<strong>LinkedIn</strong>
+<p style="margin-top:8px;color:var(--muted);">
+linkedin.com/in/shivalingesh-dhaded
+</p>
+</div>
+
 </div>
 </section>
 
 <footer>
-© 2026 Shivalingesh Dhaded · Senior Backend Engineer
+© 2026 Shivalingesh Dhaded · Engineering Intelligence Systems
 </footer>
 
 </div>
+
+<script>
+function downloadResume(){
+const link = document.createElement('a');
+link.href = "Shivalingesh_Dhaded_Resume.pdf";
+link.download = "Shivalingesh_Dhaded_Resume.pdf";
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+}
+</script>
+
 </body>
 </html>
