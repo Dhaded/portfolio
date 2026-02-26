@@ -219,6 +219,133 @@ border-top:1px solid var(--border);
 padding:40px 0;color:var(--muted);
 font-size:.8rem;text-align:center;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+header {
+padding: 0 15px;
+height: auto;
+min-height: 70px;
+flex-wrap: wrap;
+gap: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.logo {
+font-size: 1.2rem;
+}
+
+nav {
+flex-wrap: wrap;
+justify-content: center;
+gap: 8px;
+width: 100%;
+}
+
+nav a {
+margin-left: 0;
+margin: 5px 8px;
+font-size: 0.8rem;
+}
+
+.resume-header-box {
+margin-left: 0;
+margin: 5px 8px;
+padding: 8px 16px;
+}
+
+.container {
+padding: 120px 15px 50px 15px;
+}
+
+.intro-text h1 {
+font-size: 1.8rem;
+}
+
+.intro-subtitle {
+font-size: 0.9rem;
+}
+
+.status-block {
+padding: 25px;
+}
+
+.card {
+padding: 20px;
+}
+
+.section {
+margin-bottom: 70px;
+}
+
+.section h2 {
+font-size: 1.4rem;
+}
+
+.intro-description {
+font-size: 0.95rem;
+}
+
+.contact-card {
+padding: 20px;
+}
+
+footer {
+padding: 30px 15px;
+}
+}
+
+@media (max-width: 480px) {
+header {
+padding: 8px 10px;
+}
+
+nav {
+gap: 5px;
+}
+
+nav a {
+font-size: 0.75rem;
+margin: 3px 5px;
+}
+
+.resume-header-box {
+font-size: 0.75rem;
+padding: 6px 12px;
+margin: 3px 5px;
+}
+
+.intro-text h1 {
+font-size: 1.5rem;
+}
+
+.intro-description {
+font-size: 0.9rem;
+}
+
+.section {
+margin-bottom: 60px;
+}
+
+.section h2 {
+font-size: 1.3rem;
+}
+
+.stack-grid, .contact-grid {
+grid-template-columns: 1fr;
+gap: 15px;
+}
+
+.contact-card {
+padding: 18px;
+}
+
+footer {
+padding: 25px 15px;
+font-size: 0.75rem;
+}
+}
 </style>
 </head>
 
